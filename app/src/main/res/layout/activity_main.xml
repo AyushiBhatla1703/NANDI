@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:padding="10dp"
+    android:gravity="center"
+    android:background="@drawable/img_2">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ADD CATTLE FORM"
+            android:id="@+id/addcattletext"
+            android:textSize="30dp"
+            android:textStyle="bold">
+
+        </TextView>
+
+        <Button
+            android:id="@+id/out_btn"
+            android:layout_width="65dp"
+            android:layout_height="50dp"
+            android:background="@drawable/back"
+            android:contentDescription="@string/material_motion_easing_standard"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="286dp"
+            tools:layout_editor_absoluteY="-5dp">
+
+        </Button>
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="Cattle Name:"
+        android:textSize="25dp"
+        android:id="@+id/t5"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+
+        >
+
+    </TextView>
+
+    <EditText
+        android:id="@+id/cname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/addcattletext"
+        android:layout_marginTop="80dp"
+        android:text="Name"
+        tools:ignore="NotSibling,SpeakableTextPresentCheck,TouchTargetSizeCheck">
+
+    </EditText>
+
+    <TextView
+        android:id="@+id/t6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+        android:text="Cattle Id:"
+        android:textColor="@color/black"
+        android:textSize="25dp"
+        android:textStyle="bold"
+
+        >
+
+    </TextView>
+
+    <EditText
+        android:id="@+id/cid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/addcattletext"
+        android:layout_marginTop="160dp"
+        android:text="ID"
+        tools:ignore="NotSibling,SpeakableTextPresentCheck,TouchTargetSizeCheck"></EditText>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/cadd_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200dp"
+            android:text="Add Cattle"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="412dp"></Button>
+
+        <Button
+            android:id="@+id/cshow_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="200dp"
+            android:text="Show Details"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="412dp"></Button>
+    </LinearLayout>
+
+</RelativeLayout>

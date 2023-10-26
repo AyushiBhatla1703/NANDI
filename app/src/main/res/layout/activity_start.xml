@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/img"
+    tools:context=".StartActivity"
+    android:theme="@style/Theme.AppCompat">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/cardview_dark_background"
+        android:text="@string/welcome_to_nandi"
+        android:textSize="40sp" />
+
+    <Button
+        android:id="@+id/reg"
+        android:layout_width="match_parent"
+        android:layout_height="73dp"
+        android:layout_marginTop="100dp"
+        android:text="@string/register">
+
+    </Button>
+
+    <Button
+        android:id="@+id/log"
+        android:layout_width="match_parent"
+        android:layout_height="73dp"
+        android:layout_below="@+id/reg"
+        android:text="@string/login" />
+
+</RelativeLayout>
+
+

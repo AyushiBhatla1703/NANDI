@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "667470284833",
+    "firebase_url": "https://nandi-ac2d9-default-rtdb.firebaseio.com",
+    "project_id": "nandi-ac2d9",
+    "storage_bucket": "nandi-ac2d9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:667470284833:android:ae0c03fc2712cc01707b60",
+        "android_client_info": {
+          "package_name": "com.example.nandi"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDhTyVtPI3oje1ybscZgk5dsSqsLSjWp9g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
