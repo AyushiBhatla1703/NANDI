@@ -28,6 +28,7 @@
         android:layout_height="wrap_content"
         android:hint="EMAIL:"
         android:textColorHint="@color/black"
+        android:textColor="@color/black"
         android:minHeight="100dp"
         tools:ignore="DuplicateClickableBoundsCheck,HardcodedText"
         ></EditText>
@@ -53,6 +54,7 @@
         android:textColorHint="@color/black"
         android:hint="Password:"
         android:minHeight="100dp"
+        android:textColor="@color/black"
         tools:ignore="TextFields"></EditText>
 
     <Button

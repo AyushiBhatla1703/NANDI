@@ -3,15 +3,13 @@ package com.example.nandi;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -21,46 +19,54 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 
 public class CattledetailsActivity extends AppCompatActivity {
-    private ListView listView;
-    private Button logout;
+    private ListView cattleListView;
+    private ArrayList<String> cattleList;
+    private DatabaseReference cattleRef;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cattledetails);
 
-        logout = findViewById(R.id.out_btn); // Replace with the correct ID
+        cattleListView = findViewById(R.id.listview);
+        cattleList = new ArrayList<>();
+        cattleRef = FirebaseDatabase.getInstance().getReference().child("cattle");
 
-        logout.setOnClickListener(new View.OnClickListener() {
+        // Set up an ArrayAdapter to populate the ListView
+        final ArrayAdapter<String> arrayAdapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, cattleList);
+        cattleListView.setAdapter(arrayAdapter);
+
+        // Read cattle data from Firebase
+        cattleRef.addValueEventListener(new ValueEventListener() {
             @Override
-            public void onClick(View view) {
-                FirebaseAuth.getInstance().signOut();
-                Toast.makeText(CattledetailsActivity.this, "Logged Out", Toast.LENGTH_SHORT).show();
-                startActivity(new Intent(CattledetailsActivity.this, StartActivity.class));
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                cattleList.clear(); // Clear the list to avoid duplicates
+                for (DataSnapshot childSnapshot : dataSnapshot.getChildren()) {
+                    String cattleId = childSnapshot.getKey();
+                    String cattleName = childSnapshot.child("Name").getValue(String.class);
+                    cattleList.add(cattleId + ": " + cattleName);
+                }
+                arrayAdapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(CattledetailsActivity.this, "Failed to retrieve cattle data", Toast.LENGTH_SHORT).show();
             }
         });
 
-        ArrayList<String> list = new ArrayList<>();
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this, R.layout.list_item, list);
-        listView = findViewById(R.id.listview); // Replace with the correct ID
-        listView.setAdapter(adapter);
-
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference().child("cattle");
-        reference.addValueEventListener(new ValueEventListener() {
+        // Handle item clicks in the ListView
+        cattleListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                list.clear();
-                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
-                    String id = snapshot.child("Id").getValue(String.class);
-                    String name = snapshot.child("Name").getValue(String.class);
-                    list.add("ID: " + id + ", Name: " + name);
-                }
-                adapter.notifyDataSetChanged();
-            }
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // Get the selected cattle's ID (the part before ':')
+                String selectedCattleInfo = cattleList.get(position);
+                String selectedCattleId = selectedCattleInfo.split(":")[0].trim();
 
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                // Handle database error here if needed
+                // Start a new activity to display details of the selected cattle
+                Intent intent = new Intent(CattledetailsActivity.this, CattleActivity.class);
+                intent.putExtra("cattleId", selectedCattleId);
+                startActivity(intent);
             }
         });
     }

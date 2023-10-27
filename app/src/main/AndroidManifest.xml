@@ -13,6 +13,12 @@
         android:theme="@style/Theme.Nandi"
         tools:targetApi="31">
         <activity
+            android:name=".CattleActivity"
+            android:exported="false" />
+        <activity
+            android:name=".cattle"
+            android:exported="false" />
+        <activity
             android:name=".CattledetailsActivity"
             android:exported="false" />
         <activity
