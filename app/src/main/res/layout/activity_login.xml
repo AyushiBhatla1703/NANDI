@@ -27,6 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="EMAIL:"
+        android:textColorHint="@color/black"
         android:minHeight="100dp"
         tools:ignore="DuplicateClickableBoundsCheck,HardcodedText"
         ></EditText>
@@ -49,6 +50,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/t4"
+        android:textColorHint="@color/black"
         android:hint="Password:"
         android:minHeight="100dp"
         tools:ignore="TextFields"></EditText>
@@ -62,7 +64,18 @@
         android:text="LOGIN">
 
     </Button>
+    <Button
+        android:id="@+id/back_btn"
+        android:layout_width="47dp"
+        android:layout_height="35dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="0dp"
+        android:layout_marginTop="300dp"
+        android:background="@drawable/back"
+        tools:ignore="SpeakableTextPresentCheck,TouchTargetSizeCheck">
 
+    </Button>
 
 
 

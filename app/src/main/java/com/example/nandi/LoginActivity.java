@@ -1,5 +1,6 @@
 package com.example.nandi;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -18,7 +19,9 @@ public class LoginActivity extends AppCompatActivity {
     private EditText password;
     private Button login;
     private FirebaseAuth auth;
+    private Button backbtn;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,8 +29,14 @@ public class LoginActivity extends AppCompatActivity {
         email=findViewById(R.id.mail);
         password=findViewById(R.id.pass);
         login=findViewById(R.id.login_btn);
-
+        backbtn=findViewById(R.id.back_btn);
         auth=FirebaseAuth.getInstance();
+        backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(LoginActivity.this,StartActivity.class));
+            }
+        });
         login.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -37,6 +46,7 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
     }
+
     private void loginUser(String email,String password){
         auth.signInWithEmailAndPassword(email, password).addOnSuccessListener(new OnSuccessListener<AuthResult>() {
             @Override

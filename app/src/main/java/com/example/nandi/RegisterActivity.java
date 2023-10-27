@@ -1,8 +1,10 @@
 package com.example.nandi;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -15,7 +17,9 @@ public class RegisterActivity extends AppCompatActivity {
     private EditText email;
     private EditText password;
     private FirebaseAuth auth;
+    private Button backbtn;
 
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,9 +27,16 @@ public class RegisterActivity extends AppCompatActivity {
         email = findViewById(R.id.email);
         password = findViewById(R.id.pwd);
         Button register = findViewById(R.id.submit_btn);
+        backbtn =findViewById(R.id.back_btn);
 
         // Initialize FirebaseAuth
         auth = FirebaseAuth.getInstance();
+       backbtn.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+              startActivity(new Intent(RegisterActivity.this,StartActivity.class));
+           }
+       });
 
         register.setOnClickListener(view -> {
             String txt_email = email.getText().toString();
