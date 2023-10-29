@@ -30,6 +30,7 @@
         android:layout_height="wrap_content"
         android:hint="EMAIL:"
         android:minHeight="100dp"
+        android:textColor="@color/black"
         android:textColorHint="@color/black"
         tools:ignore="DuplicateClickableBoundsCheck,HardcodedText"></EditText>
 
@@ -51,6 +52,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/t2"
+        android:textColor="@color/black"
         android:textColorHint="@color/black"
         android:hint="Password:"
         android:minHeight="100dp"

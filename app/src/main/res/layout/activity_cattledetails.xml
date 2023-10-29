@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
            android:textSize="30dp"
+            android:textColor="#593EA1"
             android:textStyle="bold"
             android:text="CATTLE LIST">
 
@@ -38,8 +39,10 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="10dp"
+        android:cacheColorHint="@color/black"
         android:layout_marginTop="40dp"
         android:id="@+id/listview">
+
 
     </ListView>
 
