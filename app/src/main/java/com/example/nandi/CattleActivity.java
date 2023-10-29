@@ -1,11 +1,11 @@
 package com.example.nandi;
 
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -15,6 +15,7 @@ import com.google.firebase.database.ValueEventListener;
 public class CattleActivity extends AppCompatActivity {
 
     private TextView cattleNameTextView;
+    private Button backbtn; // Button for going back
     private TextView cattleIdTextView;
     private TextView temperatureTextView;
     private TextView heartRateTextView;
@@ -32,6 +33,7 @@ public class CattleActivity extends AppCompatActivity {
         heartRateTextView = findViewById(R.id.textViewHeartRate);
         accelerationTextView = findViewById(R.id.textViewAccelerationX);
         healthStatusTextView = findViewById(R.id.textViewHealthStatus);
+        backbtn = findViewById(R.id.backButton); // Initialize the back button
 
         // Get the cattle ID passed from the previous activity
         String cattleId = getIntent().getStringExtra("cattleId");
@@ -69,6 +71,15 @@ public class CattleActivity extends AppCompatActivity {
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 // Handle any errors that may occur during data retrieval
+            }
+        });
+
+        // Set an OnClickListener for the back button
+        backbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Handle the back button click (e.g., navigate back to the previous activity)
+                onBackPressed();
             }
         });
     }

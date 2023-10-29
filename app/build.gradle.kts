@@ -33,8 +33,7 @@ android {
 }
 
 dependencies {
-    implementation ("com.twilio.sdk:core:8.29.0") // You can check for the latest version on the Twilio website
-    implementation ("com.twilio:chat-android:6.0.0")
+
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.9.0")
     implementation("androidx.constraintlayout:constraintlayout:2.1.4")

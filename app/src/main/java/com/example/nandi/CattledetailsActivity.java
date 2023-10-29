@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -22,6 +23,7 @@ public class CattledetailsActivity extends AppCompatActivity {
     private ListView cattleListView;
     private ArrayList<String> cattleList;
     private DatabaseReference cattleRef;
+    private Button back;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +31,14 @@ public class CattledetailsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_cattledetails);
 
         cattleListView = findViewById(R.id.listview);
+        back=findViewById(R.id.out_btn);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // Handle the back button click (e.g., navigate back to the previous activity)
+                onBackPressed();
+            }
+        });
         cattleList = new ArrayList<>();
         cattleRef = FirebaseDatabase.getInstance().getReference().child("cattle");
 
