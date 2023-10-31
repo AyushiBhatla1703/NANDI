@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:padding="10dp"
+    android:gravity="center"
+    android:background="@drawable/img_2">
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-180dp"
+        android:text="NOTE:"
+        android:textSize="20dp"
+        android:textStyle="bold">
+    </EditText>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-140dp"
+        android:text="Please Submit the form you will get a call from ourside soon and details will be finalized"
+        android:textSize="18dp"
+        android:id="@+id/des"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        >
+
+    </TextView>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:gravity="center">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Subscription Form"
+            android:textColor="#5A33C1"
+            android:id="@+id/subscribeform"
+            android:textSize="30dp"
+            android:textStyle="bold">
+
+        </TextView>
+
+        <Button
+            android:id="@+id/out_btn"
+            android:layout_width="65dp"
+            android:layout_height="50dp"
+            android:background="@drawable/back"
+            android:contentDescription="@string/material_motion_easing_standard"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="286dp"
+            tools:layout_editor_absoluteY="-5dp">
+
+        </Button>
+    </LinearLayout>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="User Name:"
+        android:textSize="25dp"
+        android:id="@+id/usernametxt"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        >
+
+    </TextView>
+
+    <EditText
+        android:id="@+id/uname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="80dp"
+        android:hint="Name"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        tools:ignore="NotSibling,SpeakableTextPresentCheck,TouchTargetSizeCheck">
+
+    </EditText>
+
+    <TextView
+        android:id="@+id/t6"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="120dp"
+        android:text="Address:"
+        android:textColor="@color/black"
+        android:textSize="25dp"
+        android:textStyle="bold"
+
+        >
+
+    </TextView>
+
+    <EditText
+        android:id="@+id/cid"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="160dp"
+        android:hint="Address"
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        tools:ignore="NotSibling,SpeakableTextPresentCheck,TouchTargetSizeCheck"></EditText>
+
+    <TextView
+        android:id="@+id/mobile"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:text="Mobile No:"
+        android:textColor="@color/black"
+        android:textSize="25dp"
+        android:textStyle="bold"
+        >
+    </TextView>
+    <EditText
+        android:id="@+id/mno"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="240dp"
+        android:hint="Mobile no."
+        android:textColorHint="@color/black"
+        android:textColor="@color/black"
+        tools:ignore="NotSibling,SpeakableTextPresentCheck,TouchTargetSizeCheck"></EditText>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/subs_btn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="300dp"
+            android:text="SUBMIT"
+            tools:ignore="MissingConstraints"
+            tools:layout_editor_absoluteX="16dp"
+            tools:layout_editor_absoluteY="412dp"></Button>
+
+
+    </LinearLayout>
+
+</RelativeLayout>

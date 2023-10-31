@@ -43,11 +43,11 @@
         android:textStyle="bold"
         android:textColor="@color/black"
         android:textColorHighlight="@color/black">
-
     </TextView>
 
     <EditText
         android:id="@+id/pass"
+        android:inputType="textPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/t4"

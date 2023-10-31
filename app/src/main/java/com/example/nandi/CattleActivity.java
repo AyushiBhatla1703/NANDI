@@ -1,16 +1,30 @@
 package com.example.nandi;
 
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+/*
+implementation 'androidx.appcompat:appcompat:1.2.0' // Replace with your desired version
+implementation 'androidx.core:core:1.3.2' // Replace with your desired version
+*/
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.NotificationCompat;
+
+
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
 
 public class CattleActivity extends AppCompatActivity {
 
@@ -78,22 +92,53 @@ public class CattleActivity extends AppCompatActivity {
         backbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 // Handle the back button click (e.g., navigate back to the previous activity)
                 onBackPressed();
             }
         });
+
     }
 
+
     private String classifyHealthStatus(Double temperature, Long heartRate, Double accelerationX, Double accelerationY, Double accelerationZ) {
-        // Define your health status classification logic here
-        // Modify this logic based on your criteria for classifying health status.
-        // You can consider temperature, heart rate, and acceleration values.
         if (temperature >= 39.0 || heartRate >= 100 || accelerationX >= 2.0 || accelerationY >= 2.0 || accelerationZ >= 2.0) {
+            makeNotification("High Risk", "Cattle's health is at high risk!");
             return "High Risk";
         } else if (temperature >= 37.5 || heartRate >= 80 || accelerationX >= 1.0 || accelerationY >= 1.0 || accelerationZ >= 1.0) {
+            makeNotification("Moderate Risk", "Cattle's health is at moderate risk!");
             return "Moderate Risk";
         } else {
             return "Normal";
         }
+
+    }
+
+    // IN CASE OF BACKTRACKING, DELETE THESE CODE BELOW
+    public void makeNotification(String s, String s1){
+        String chanelID= "CHANNEL_ID_NOTIFICATION";
+        NotificationCompat.Builder builder= new NotificationCompat.Builder(getApplicationContext(),chanelID);
+        builder.setSmallIcon(R.drawable.baseline_add_alert_24)
+                .setContentTitle(s)
+                .setContentText("Check Cattle Health Values ")
+                .setAutoCancel(true)
+                .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+        Intent intent =new Intent(getApplicationContext(),CattleActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        NotificationManager notificationManager =
+                (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+                NotificationChannel notificationChannel = notificationManager.getNotificationChannel(chanelID);
+            if(notificationChannel ==null){
+                int importance = NotificationManager.IMPORTANCE_HIGH;
+                notificationChannel=new NotificationChannel(chanelID,"Some Deprication",importance);
+                notificationChannel.enableVibration(true);
+                notificationManager.createNotificationChannel(notificationChannel);
+            }
+        }
+            notificationManager.notify(0,builder.build());
+
     }
 }

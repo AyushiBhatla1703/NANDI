@@ -39,11 +39,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="10dp"
-        android:cacheColorHint="@color/black"
         android:layout_marginTop="40dp"
+        android:background="@color/white"
         android:id="@+id/listview">
-
-
     </ListView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
